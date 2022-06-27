@@ -11,6 +11,7 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
+import demon from './modules/demon'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -129,6 +130,7 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+  demon,
   {
     path: '/permission',
     component: Layout,
@@ -189,7 +191,6 @@ export const asyncRoutes = [
   chartsRouter,
   nestedRouter,
   tableRouter,
-
   {
     path: '/example',
     component: Layout,
@@ -371,7 +372,18 @@ export const asyncRoutes = [
       }
     ]
   },
-
+  // {
+  //   path: '/demon1',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/demon1/index'),
+  //       name: 'demon1',
+  //       meta: { title: 'demon1', icon: 'clipboard' }
+  //     }
+  //   ]
+  // },
   {
     path: 'external-link',
     component: Layout,
@@ -382,7 +394,6 @@ export const asyncRoutes = [
       }
     ]
   },
-
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
